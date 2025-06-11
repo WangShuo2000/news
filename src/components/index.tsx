@@ -312,10 +312,10 @@ const NewsWebsite = () => {
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
-                      <span className="text-xs font-semibold text-blue-700 bg-blue-100/80 px-4 py-2 rounded-full backdrop-blur-sm">
+                      {/* <span className="text-xs font-semibold text-blue-700 bg-blue-100/80 px-4 py-2 rounded-full backdrop-blur-sm">
                         {article.source.name}
-                      </span>
-                      <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                      </span> */}
+                      {/* <div className="w-1 h-1 bg-gray-300 rounded-full"></div> */}
                       <span className="text-xs text-gray-500 font-medium">
                         {formatDate(article.publishedAt)}
                       </span>
