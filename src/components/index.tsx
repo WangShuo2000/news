@@ -173,11 +173,11 @@ const NewsWebsite = () => {
       setLoading(true);
       
       const rssUrl = 'https://www.cnbc.com/id/100727362/device/rss/rss.html'
-      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`
+      const apiUrl = `https://rss2json.trouvaillewang.workers.dev?url=${encodeURIComponent(rssUrl)}`
 
       const response = await fetch(apiUrl);
       const res = await response.json();
-      const articles = res.items.map((item: NewsItem) => ({
+      const articles = res.map((item: NewsItem) => ({
         title: item.title,
         description: item.description,
         url: item.link,
