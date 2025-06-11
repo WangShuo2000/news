@@ -1,0 +1,33 @@
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title" role="img">
+  <title id="title">摸鱼新闻图标</title>
+  
+  <style>
+    .fish-body { fill: #FF8C00; } /* 橙色 - 主题色 */
+    .newspaper { fill: #FFFFFF; }
+    .text-lines { fill: #B0B0B0; }
+    .outline {
+      stroke: #2c3e50; /* 深蓝灰色描边 */
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+
+  <g transform="rotate(-10 50 50)">
+    <path class="fish-body outline" d="M 25,55 C 10,70 30,85 50,80 S 85,70 85,50 S 70,20 45,25 C 20,30 15,35 25,55 Z" />
+
+    <path class="fish-body outline" d="M 85,50 C 95,40 100,60 85,50 Z" />
+
+    <g transform="translate(10, -10) rotate(15 35 50)">
+      <rect class="newspaper outline" x="15" y="35" width="40" height="50" rx="3" />
+      <rect class="text-lines" x="22" y="42" width="26" height="3" />
+      <rect class="text-lines" x="22" y="50" width="26" height="3" />
+      <rect class="text-lines" x="22" y="58" width="15" height="12" rx="1" />
+    </g>
+    
+    <circle fill="#2c3e50" cx="35" cy="50" r="3" />
+
+    <circle fill="#87CEEB" class="outline" fill-opacity="0.7" cx="78" cy="28" r="4" />
+    <circle fill="#87CEEB" class="outline" fill-opacity="0.7" cx="88" cy="35" r="2.5" />
+  </g>
+</svg>
