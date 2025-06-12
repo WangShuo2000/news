@@ -1,3 +1,13 @@
+---
+const siteName = '摸鱼新闻';
+const pageTitle = '摸鱼新闻 - 发现世界，启发思考';
+const pageDescription = '提供最新的全球新闻，是您工作间隙的最佳伴侣。立即访问，轻松一刻！';
+const siteUrl = Astro.url.origin; // 网站的根URL
+const pageUrl = Astro.url.href; // 当前页面的完整URL
+const socialImage = new URL('/share.png', siteUrl).href; // 网站分享卡片图片
+const siteLogo = new URL('/news.svg', siteUrl).href; // 网站Logo
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,7 +15,55 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/news.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<meta name="author" content={siteName} />
+
+		{/* --- Canonical URL --- */}
+		<link rel="canonical" href={pageUrl} />
+
+		{/* --- 社交媒体分享优化 (Open Graph) --- */}
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:url" content={pageUrl} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:image" content={socialImage} />
+		{/* 对于首页/网站，类型应为 'website' */}
+		<meta property="og:type" content="website" />
+
+		{/* --- 社交媒体分享优化 (Twitter Card) --- */}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={socialImage} />
+
+		{/* --- 结构化数据 (JSON-LD), 使用 WebSite 类型 --- */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": siteName,
+			"url": siteUrl,
+			"description": pageDescription,
+			"publisher": {
+        "@type": "Organization",
+        "name": siteName,
+        "logo": {
+          "@type": "ImageObject",
+          "url": siteLogo
+        }
+      },
+			"potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+		})} />
+
+		<!-- sitemap -->
+		 <link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
 	<body>
 		<style is:global>

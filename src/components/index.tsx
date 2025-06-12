@@ -31,7 +31,6 @@ const NewsWebsite = () => {
         const { ScrollTrigger } = await import('gsap/ScrollTrigger');
         gsap.registerPlugin(ScrollTrigger);
         setScrollTriggerLoaded(true);
-        console.log('ScrollTrigger加载成功');
         
       } catch (error) {
         console.warn('ScrollTrigger加载失败，使用备用方案:', error);
@@ -286,7 +285,7 @@ const NewsWebsite = () => {
             <article
               key={index}
               ref={el => { newsItemsRef.current[index] = el!; }}
-              className="group relative bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/20 transition-all duration-500 overflow-hidden border border-white/20 hover:border-white/40 will-change-transform"
+              className="group relative bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl shadow-black/10  transition-all duration-500 overflow-hidden border border-white/20 hover:border-white/40 will-change-transform"
               style={{ perspective: '1000px' }}
             >
               {/* 卡片光泽效果 */}
